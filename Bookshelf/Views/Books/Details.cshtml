@@ -1,0 +1,20 @@
+﻿@model Book
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h1>@Model.Title</h1>
+<p>@Model.Author · @Model.Pages pages</p>
+<p>@(Model.IsRead ? "Read" : "Not read yet")</p>
+
+<p>
+    @if (Model.Id > 1)
+    {
+        <a asp-action="Details" asp-route-id="@(Model.Id - 1)">Prev</a>
+    }
+    @if (Model.Id < ViewBag.LastId)
+    {
+        <a asp-action="Details" asp-route-id="@(Model.Id + 1)">Next</a>
+    }
+</p>
+<a asp-action="Index">Back to shelf</a>

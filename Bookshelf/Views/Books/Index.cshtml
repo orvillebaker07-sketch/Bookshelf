@@ -1,0 +1,15 @@
+﻿@model List<Bookshelf.Models.Book>
+
+@{
+    ViewData["Title"] = "My shelf";
+    int readCount = Model.Count(b => b.IsRead);
+}
+
+<h1>My shelf</h1>
+
+<p>@readCount of @Model.Count read</p>
+
+@foreach (var book in Model)
+{
+    <partial name="_BookCard" model="book" />
+}
