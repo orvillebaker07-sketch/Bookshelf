@@ -1,5 +1,11 @@
 ﻿@model List<Bookshelf.Models.Book>
 
+<a asp-action="New">Add a book</a>
+
+@if (TempData["Message"] != null)
+{
+    <p>@TempData["Message"]</p>
+}
 @{
     ViewData["Title"] = "My shelf";
     int readCount = Model.Count(b => b.IsRead);
